@@ -2,7 +2,7 @@
 <resources>
 
     <style name="RoundedRectangle">
-        <item name="cornerSize">8dp</item>
+        <item name="roundedCornerRadius">8dp</item>
         <item name="cornerFamily">rounded</item>
     </style>
 

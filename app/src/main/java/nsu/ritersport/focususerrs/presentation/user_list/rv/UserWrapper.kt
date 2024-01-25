@@ -1,6 +1,6 @@
 package nsu.ritersport.focususerrs.presentation.user_list.rv
 
-import android.graphics.drawable.Drawable
+import android.net.Uri
 import nsu.ritersport.focususerrs.domain.model.User
 
 data class UserWrapper (
@@ -8,5 +8,5 @@ data class UserWrapper (
     val name: String,
     val address: String,
     val phoneNumber: String,
-    val photo: Drawable,
+    val photo: Uri,
 )

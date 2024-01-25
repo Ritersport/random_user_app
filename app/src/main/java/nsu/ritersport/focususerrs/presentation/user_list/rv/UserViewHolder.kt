@@ -12,8 +12,7 @@ class UserViewHolder(
             nameText.text = user.name
             phoneText.text = user.phoneNumber
             addressText.text = user.address
-
-            image.setImageDrawable(user.photo)
+            image.setImageURI(user.photo)
             root.setOnClickListener { onItemClicked(user.user) }
         }
 }
