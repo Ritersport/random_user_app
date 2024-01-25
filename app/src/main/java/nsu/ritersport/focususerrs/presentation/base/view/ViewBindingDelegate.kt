@@ -36,6 +36,12 @@ class ViewBindingDelegate<T : ViewBinding>(
     }
 }
 
+fun <T : ViewBinding> viewBinding(
+    onViewBindingCreate: (inflater: LayoutInflater, container: ViewGroup?) -> T
+): ViewBindingDelegate<T> {
+    return ViewBindingDelegate(onViewBindingCreate)
+}
+
 interface ViewBindingHolder {
     @Suppress("PropertyName")
     var _viewBindingDelegate: ViewBindingDelegate<*>?

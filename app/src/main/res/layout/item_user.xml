@@ -14,7 +14,7 @@
         android:paddingVertical="12dp">
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/cover_image"
+            android:id="@+id/image"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:src="@drawable/ic_launcher_background"
@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="24dp"
             android:layout_marginStart="12dp"
-            app:layout_constraintStart_toEndOf="@+id/cover_image"
+            app:layout_constraintStart_toEndOf="@+id/image"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Shreksatronik Shreksovich" />
 
@@ -39,7 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="20dp"
             android:layout_marginStart="12dp"
-            app:layout_constraintStart_toEndOf="@+id/cover_image"
+            app:layout_constraintStart_toEndOf="@+id/image"
             app:layout_constraintTop_toBottomOf="@id/name_text"
             tools:text="Adrress takoy takoy takoy-to i vot takoy" />
 
@@ -49,7 +49,7 @@
             android:layout_width="wrap_content"
             android:layout_height="20dp"
             android:layout_marginStart="12dp"
-            app:layout_constraintStart_toEndOf="@+id/cover_image"
+            app:layout_constraintStart_toEndOf="@+id/image"
             app:layout_constraintTop_toBottomOf="@id/address_text"
             tools:text="+7(983)387-79-96" />
 
