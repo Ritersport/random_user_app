@@ -26,10 +26,10 @@ class UserListViewModel @Inject constructor(
     }
 
     private fun loadUsers() {
-        userRepository.getUsers(50).map { it ->
+        userRepository.getCachedUsers().map { it ->
             it.map {
                 UserWrapper(
-                    it,
+                    it.userId,
                     "%s %s %s".format(it.name.title, it.name.first, it.name.last),
                     "%s, %s, %s".format(it.location.country, it.location.state, it.location.city),
                     it.phone,

@@ -3,6 +3,7 @@ package nsu.ritersport.focususerrs.domain.model
 import nsu.ritersport.focususerrs.domain.model.location.Location
 
 data class User (
+    val userId: String,
     val gender: Gender,
     val name: Name,
     val location: Location,

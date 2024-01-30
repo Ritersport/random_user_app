@@ -5,6 +5,7 @@ data class UserResponse(
     val name: NameResponse,
     val location: LocationResponse,
     val email: String,
+    val login: LoginResponse,
     val dob: DateResponse,
     val registered: DateResponse,
     val phone: String,
