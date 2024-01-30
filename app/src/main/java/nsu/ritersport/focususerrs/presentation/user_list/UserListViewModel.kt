@@ -1,6 +1,5 @@
 package nsu.ritersport.focususerrs.presentation.user_list
 
-import android.graphics.drawable.Drawable
 import android.net.Uri
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -26,7 +25,7 @@ class UserListViewModel @Inject constructor(
     }
 
     private fun loadUsers() {
-        userRepository.getCachedUsers().map { it ->
+        userRepository.getSavedUsers().map { it ->
             it.map {
                 UserWrapper(
                     it.userId,

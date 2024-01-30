@@ -1,11 +1,8 @@
 package nsu.ritersport.focususerrs.domain.model.location
 
-data class Location (
+data class SimpleLocation(
     val street: String,
     val city: String,
     val state: String,
     val country: String,
-    val postcode: String,
-    val coordinates: Coordinates,
-    val timezone: Timezone,
 )

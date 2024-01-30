@@ -11,5 +11,5 @@ data class User (
     val age: Int,
     val registered: Int,
     val phone: String,
-    val picture: Picture,
+    val picture: String,
 )
