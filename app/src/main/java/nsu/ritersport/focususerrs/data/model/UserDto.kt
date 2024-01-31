@@ -32,6 +32,6 @@ data class UserDto(
     val registrationDate: String,
 
     //refs
-    val locationIdRef: Int,
-    val picsRef: Int,
+    val locationIdRef: Long,
+    val picsRef: Long,
 )

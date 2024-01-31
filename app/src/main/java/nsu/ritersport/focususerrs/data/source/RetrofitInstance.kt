@@ -3,6 +3,7 @@ package nsu.ritersport.focususerrs.data.source
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 class RetrofitInstance {
@@ -14,6 +15,7 @@ class RetrofitInstance {
         Retrofit.Builder()
             .baseUrl("https://randomuser.me")
             .addConverterFactory(MoshiConverterFactory.create(moshi))
+            .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .build()
             .create(UsersAPI::class.java)
 

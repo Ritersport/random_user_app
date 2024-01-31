@@ -5,6 +5,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "timezones")
 data class TimezoneDto(
-    @PrimaryKey (autoGenerate = false) val offset: String = "",
+    @PrimaryKey (autoGenerate = true) val timeId: Long = 0,
+    val offset: String = "",
     val description: String,
 )

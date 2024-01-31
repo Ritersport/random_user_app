@@ -51,7 +51,7 @@ class UserRepositoryImpl @Inject constructor(
         response.results.forEach {
             val tz = timezoneDao.insertTimezone(
                 TimezoneDto(
-                    it.location.timezone.offset, it.location.timezone.description
+                    0, it.location.timezone.offset, it.location.timezone.description
                 )
             )
             val location = locationDao.insertLocation(LocationMapper.toEntity(it.location, tz))
@@ -62,5 +62,12 @@ class UserRepositoryImpl @Inject constructor(
             )
             userDao.insertUser(UserMapper.toEntity(it, location, pics))
         }
+    }
+
+    override fun deleteAll() = Completable.fromCallable {
+        userDao.deleteUsers()
+        picturesDao.deletePictures()
+        locationDao.deleteLocations()
+        timezoneDao.deleteTimezones()
     }
 }

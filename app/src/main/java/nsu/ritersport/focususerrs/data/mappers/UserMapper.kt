@@ -51,7 +51,7 @@ object UserMapper {
         userDto.largePicture
     )
 
-    fun toEntity(response: UserResponse, locationRef: Int, picRef: Int) = UserDto(
+    fun toEntity(response: UserResponse, locationRef: Long, picRef: Long) = UserDto(
         response.login.uuid,
         response.name.title,
         response.name.first,

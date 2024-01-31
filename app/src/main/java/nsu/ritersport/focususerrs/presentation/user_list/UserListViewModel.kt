@@ -25,20 +25,23 @@ class UserListViewModel @Inject constructor(
     }
 
     private fun loadUsers() {
-        userRepository.getSavedUsers().map { it ->
+        userRepository.getSavedUsersList().map { it ->
             it.map {
                 UserWrapper(
                     it.userId,
                     "%s %s %s".format(it.name.title, it.name.first, it.name.last),
                     "%s, %s, %s".format(it.location.country, it.location.state, it.location.city),
                     it.phone,
-                    Uri.parse(it.picture.thumbnail)
+                    Uri.parse(it.picture)
                 )
             }
         }.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 _users.value = it
+                if (it.isEmpty()) {
+                    updateUsers()
+                }
             },
                 {
                     onError(it)
@@ -46,7 +49,31 @@ class UserListViewModel @Inject constructor(
             .unsubscribeOnCleared()
     }
 
-    fun onItemClicked(user: User) {
+    fun updateUsers() {
+        userRepository.updateUsers(20)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                loadUsers()
+            },
+                {
+                    onError(it)
+                }).unsubscribeOnCleared()
+    }
+
+    fun deleteUsers() {
+        userRepository.deleteAll()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+
+            },
+                {
+                    onError(it)
+                }).unsubscribeOnCleared()
+    }
+
+    fun onItemClicked(userId: String) {
 
     }
 }

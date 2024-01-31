@@ -4,7 +4,7 @@ import nsu.ritersport.focususerrs.data.model.LocationDto
 import nsu.ritersport.focususerrs.data.source.models.LocationResponse
 
 object LocationMapper {
-    fun toEntity(response: LocationResponse, tzRef: String) = LocationDto(
+    fun toEntity(response: LocationResponse, tzRef: Long) = LocationDto(
         0,
         response.postcode,
         response.country,

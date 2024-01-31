@@ -7,12 +7,12 @@ import nsu.ritersport.focususerrs.domain.model.User
 class UserViewHolder(
     private val binding: ItemUserBinding,
 ) : ViewHolder(binding.root) {
-    fun bind(user: UserWrapper, onItemClicked: (User) -> Unit) =
+    fun bind(user: UserWrapper, onItemClicked: (String) -> Unit) =
         binding.run {
             nameText.text = user.name
             phoneText.text = user.phoneNumber
             addressText.text = user.address
             image.setImageURI(user.photo)
-            root.setOnClickListener { onItemClicked(user.user) }
+            root.setOnClickListener { onItemClicked(user.userId) }
         }
 }

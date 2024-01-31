@@ -8,7 +8,7 @@ import nsu.ritersport.focususerrs.databinding.ItemUserBinding
 import nsu.ritersport.focususerrs.domain.model.User
 
 class UserAdapter(
-    private val onItemClicked: (User) -> Unit,
+    private val onItemClicked: (String) -> Unit,
 ) : Adapter<ViewHolder>() {
 
     var items: List<UserWrapper> = emptyList()

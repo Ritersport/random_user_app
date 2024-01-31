@@ -9,13 +9,13 @@ import androidx.room.PrimaryKey
     foreignKeys = [
         ForeignKey(
             entity = TimezoneDto::class,
-            parentColumns = ["offset"],
+            parentColumns = ["timeId"],
             childColumns = ["timezoneRef"]
         )
     ]
 )
 data class LocationDto(
-    @PrimaryKey(autoGenerate = true) val locationId: Int = 0,
+    @PrimaryKey(autoGenerate = true) val locationId: Long = 0,
     val postcode: String,
     val country: String,
     val state: String,
@@ -25,5 +25,5 @@ data class LocationDto(
     val longitude: Float,
 
     //refs
-    val timezoneRef: String,
+    val timezoneRef: Long,
 )
