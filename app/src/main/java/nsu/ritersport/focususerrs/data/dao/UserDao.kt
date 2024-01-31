@@ -21,7 +21,7 @@ interface UserDao {
                 "WHERE uuid = :id)" +
             "LEFT JOIN " +
                 "(SELECT * FROM locations LEFT JOIN " +
-                "timezones ON locations.timezoneRef = timezones.`offset`) " +
+                "timezones ON locations.timezoneRef = timezones.timeId) " +
             "ON locationId = locationIdRef)")
     fun selectFullUserById(id: String): Single<FullInfoDto>
 
@@ -34,4 +34,7 @@ interface UserDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertUser(userDto: UserDto)
+
+    @Query("DELETE FROM users")
+    fun deleteUsers()
 }

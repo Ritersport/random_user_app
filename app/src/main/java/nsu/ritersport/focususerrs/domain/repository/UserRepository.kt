@@ -13,4 +13,6 @@ interface UserRepository {
 
     fun updateUsers(count: Int): Completable
 
+    fun deleteAll(): Completable
+
 }
