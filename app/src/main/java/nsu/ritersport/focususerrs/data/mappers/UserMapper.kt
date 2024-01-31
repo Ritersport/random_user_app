@@ -48,6 +48,7 @@ object UserMapper {
         getAge(Instant.parse(userDto.birthdate)),
         getAge(Instant.parse(userDto.registrationDate)),
         userDto.phone,
+        userDto.cell,
         userDto.largePicture
     )
 

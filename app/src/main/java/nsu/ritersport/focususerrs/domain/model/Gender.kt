@@ -12,6 +12,12 @@ enum class Gender {
                 "female" -> FEMALE
                 else -> UNKNOWN
             }
+
+        fun Gender.asString() = when(this) {
+            MALE -> "Male"
+            FEMALE -> "Female"
+            else -> "Unknown"
+        }
     }
 
 }

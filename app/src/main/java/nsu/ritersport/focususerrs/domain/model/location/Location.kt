@@ -8,4 +8,8 @@ data class Location (
     val postcode: String,
     val coordinates: Coordinates,
     val timezone: Timezone,
-)
+
+
+) {
+    fun addressString() = "%s, %s, %s, %s".format(country, state, city, street)
+}

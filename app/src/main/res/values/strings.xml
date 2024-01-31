@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">FocusUsers</string>
+    <string name="phone">phone:</string>
+    <string name="cell">cell:</string>
 </resources>

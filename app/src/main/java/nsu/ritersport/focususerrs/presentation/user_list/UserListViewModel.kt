@@ -8,9 +8,13 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import nsu.ritersport.focususerrs.domain.model.User
 import nsu.ritersport.focususerrs.domain.repository.UserRepository
+import nsu.ritersport.focususerrs.presentation.base.live_data.SingleLiveEvent
+import nsu.ritersport.focususerrs.presentation.base.live_data.update
 import nsu.ritersport.focususerrs.presentation.base.view.BaseViewModel
 import nsu.ritersport.focususerrs.presentation.user_list.rv.UserWrapper
 import javax.inject.Inject
+
+private const val USERS_ON_PAGE = 20
 
 @HiltViewModel
 class UserListViewModel @Inject constructor(
@@ -19,6 +23,9 @@ class UserListViewModel @Inject constructor(
 
     private val _users: MutableLiveData<List<UserWrapper>> = MutableLiveData()
     val users: LiveData<List<UserWrapper>> = _users
+
+    private val _navEvent = SingleLiveEvent<ScreenRoutes>()
+    val navEvent: LiveData<ScreenRoutes> = _navEvent
 
     init {
         loadUsers()
@@ -50,7 +57,7 @@ class UserListViewModel @Inject constructor(
     }
 
     fun updateUsers() {
-        userRepository.updateUsers(20)
+        userRepository.updateUsers(USERS_ON_PAGE)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
@@ -74,6 +81,6 @@ class UserListViewModel @Inject constructor(
     }
 
     fun onItemClicked(userId: String) {
-
+        _navEvent.update { ScreenRoutes.ToUser(userId) }
     }
 }

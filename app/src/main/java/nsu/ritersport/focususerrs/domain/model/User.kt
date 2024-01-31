@@ -11,5 +11,6 @@ data class User (
     val age: Int,
     val registered: Int,
     val phone: String,
+    val cell: String,
     val picture: String,
 )
